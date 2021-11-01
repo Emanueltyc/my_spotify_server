@@ -6,4 +6,6 @@ const app = Express();
 app.use(Express.json());
 app.use(router);
 
-app.listen(process.env.PORT, () => console.log('Server running at port 3000!'));
+app.listen(process.env.PORT, () =>
+  console.log(`Server running at port ${process.env.PORT}!`)
+);
