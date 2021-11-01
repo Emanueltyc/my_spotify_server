@@ -1,5 +1,7 @@
 import { Router } from 'express';
 
+import { RefreshTokenController } from './controllers/RefreshTokenController';
+
 const router = Router();
 
-router.post('/refresh', (req, res) => {});
+router.post('/refresh', new RefreshTokenController().handle);
