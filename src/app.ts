@@ -1,5 +1,6 @@
-import Express from 'express';
-import SpotifyWebApi from 'spotify-web-api-node';
+import Express, { Router } from 'express';
+import { router } from './routes';
 
 const app = Express();
-app.use;
+app.use(Express.json());
+app.use(router);
