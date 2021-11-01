@@ -1,10 +1,7 @@
-import { Request, Response } from 'express';
 import SpotifyWebApi from 'spotify-web-api-node';
 
 class RefreshTokenService {
-  async execute(req: Request, res: Response) {
-    const refreshToken = req.body.refreshToken;
-
+  async execute(refreshToken: string) {
     let accessToken = '';
     let expiresIn = 0;
 
@@ -21,8 +18,8 @@ class RefreshTokenService {
         accessToken = data.body.access_token;
         expiresIn = data.body.expires_in;
       })
-      .catch(() => {
-        res.sendStatus(400);
+      .catch((err) => {
+        console.log(err);
       });
 
     return { accessToken, expiresIn };
