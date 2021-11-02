@@ -1,9 +1,9 @@
-import Express, { Router } from 'express';
+import express from 'express';
 import { router } from './routes';
 import 'dotenv/config';
 
-const app = Express();
-app.use(Express.json());
+const app = express();
+app.use(express.json());
 app.use(router);
 
 app.listen(process.env.PORT, () =>
