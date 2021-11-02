@@ -17,12 +17,12 @@ class RefreshTokenService {
       .then((data) => {
         accessToken = data.body.access_token;
         expiresIn = data.body.expires_in;
+
+        return { accessToken, expiresIn };
       })
       .catch((err) => {
         console.log(err);
       });
-
-    return { accessToken, expiresIn };
   }
 }
 

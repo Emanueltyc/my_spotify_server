@@ -18,12 +18,12 @@ class LoginService {
         accessToken = data.body.access_token;
         refreshToken = data.body.refresh_token;
         expiresIn = data.body.expires_in;
+
+        return { accessToken, refreshToken, expiresIn };
       })
       .catch((err) => {
         console.log(err);
       });
-
-    return { accessToken, refreshToken, expiresIn };
   }
 }
 
