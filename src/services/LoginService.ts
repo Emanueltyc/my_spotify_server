@@ -12,18 +12,13 @@ class LoginService {
       clientSecret: process.env.CLIENT_SECRET,
     });
 
-    spotifyApi
-      .authorizationCodeGrant(code)
-      .then((data) => {
-        accessToken = data.body.access_token;
-        refreshToken = data.body.refresh_token;
-        expiresIn = data.body.expires_in;
+    const result = await spotifyApi.authorizationCodeGrant(code);
 
-        return { accessToken, refreshToken, expiresIn };
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    accessToken = result.body.access_token;
+    refreshToken = result.body.refresh_token;
+    expiresIn = result.body.expires_in;
+
+    return { accessToken, refreshToken, expiresIn };
   }
 }
 
